@@ -12,5 +12,20 @@ public class BaseManager : MonoBehaviour
     public virtual void Awake()
     {
         instance = this;
+        foreach (var command in config.commands)
+        {
+            command._Setup();
+        }
+    }
+
+    public void MarkDirty()
+    {
+        foreach (var panel in panelGroup.panels)
+        {
+            if (panel is BasePanel basePanel)
+            {
+                basePanel.MarkDirty();
+            }
+        }
     }
 }

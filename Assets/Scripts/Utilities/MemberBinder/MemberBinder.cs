@@ -22,6 +22,11 @@ public class MemberBinder : MonoBehaviour
             Bind();
     }
 
+    public void BindForce()
+    {
+        hasBind = false;
+        Bind();
+    }
     public void Bind()
     {
         if (hasBind) return;
@@ -142,6 +147,10 @@ public class MemberBinder : MonoBehaviour
     public static void Bind(MonoBehaviour target)
     {
         target.GetComponent<MemberBinder>().Bind();
+    }
+    public static void BindForce(MonoBehaviour target)
+    {
+        target.GetComponent<MemberBinder>().BindForce();
     }
 }
 

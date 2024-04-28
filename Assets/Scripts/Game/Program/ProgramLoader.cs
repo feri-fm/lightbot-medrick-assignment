@@ -10,20 +10,22 @@ public class ProgramLoader : MonoBehaviour
 
     public ProgramState program { get; private set; }
 
+    public BaseManager manager => BaseManager.instance;
+
     private float executionTime;
-    private float nextExecution;
+    private float nextExecutionTime;
 
     private void Update()
     {
         if (isExecuting)
         {
             executionTime += Time.deltaTime;
-            if (executionTime > nextExecution)
+            if (executionTime > nextExecutionTime)
             {
                 var command = StepForward();
                 if (command != null)
                 {
-                    nextExecution = executionTime + command.executionTime;
+                    nextExecutionTime = executionTime + command.executionTime;
                 }
                 else
                 {

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Procedure : MonoBehaviour
 {
-    public string key = "main";
+    public string key => name;
     public int maxCommands = 1;
 
     public ProcedureState CreateState()
@@ -29,6 +29,8 @@ public class ProcedureState
 
     public CommandState AddCommand(Command prefab)
     {
+        if (commands.Count >= maxCommands) return null;
+
         var command = prefab.CreateState();
         command.Setup(prefab, this);
         commands.Add(command);

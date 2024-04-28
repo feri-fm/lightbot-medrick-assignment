@@ -1,0 +1,111 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &3900743038358610688
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1487054118401736251, guid: 96bf4f6e50500a84c97bbcf72f453d02,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 531978686513612641}
+    - target: {fileID: 1510022316296241498, guid: 96bf4f6e50500a84c97bbcf72f453d02,
+        type: 3}
+      propertyPath: m_Name
+      value: ToggleLight
+      objectReference: {fileID: 0}
+    - target: {fileID: 5659150454933148483, guid: 96bf4f6e50500a84c97bbcf72f453d02,
+        type: 3}
+      propertyPath: m_Name
+      value: ToggleLight
+      objectReference: {fileID: 0}
+    - target: {fileID: 5683236819221228578, guid: 96bf4f6e50500a84c97bbcf72f453d02,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5740325557408321045, guid: 96bf4f6e50500a84c97bbcf72f453d02,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5740325557408321045, guid: 96bf4f6e50500a84c97bbcf72f453d02,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5740325557408321045, guid: 96bf4f6e50500a84c97bbcf72f453d02,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5740325557408321045, guid: 96bf4f6e50500a84c97bbcf72f453d02,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5740325557408321045, guid: 96bf4f6e50500a84c97bbcf72f453d02,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5740325557408321045, guid: 96bf4f6e50500a84c97bbcf72f453d02,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5740325557408321045, guid: 96bf4f6e50500a84c97bbcf72f453d02,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5740325557408321045, guid: 96bf4f6e50500a84c97bbcf72f453d02,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5740325557408321045, guid: 96bf4f6e50500a84c97bbcf72f453d02,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5740325557408321045, guid: 96bf4f6e50500a84c97bbcf72f453d02,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5740325557408321045, guid: 96bf4f6e50500a84c97bbcf72f453d02,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6056310860621016907, guid: 96bf4f6e50500a84c97bbcf72f453d02,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a5c6e4991c28196409708f1d79709fa8,
+        type: 3}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 96bf4f6e50500a84c97bbcf72f453d02, type: 3}
+--- !u!1 &2510357031948477018 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1510022316296241498, guid: 96bf4f6e50500a84c97bbcf72f453d02,
+    type: 3}
+  m_PrefabInstance: {fileID: 3900743038358610688}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &531978686513612641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2510357031948477018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ca7d01569b2354419a3a59e6d56cc99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  executionTime: 0.5

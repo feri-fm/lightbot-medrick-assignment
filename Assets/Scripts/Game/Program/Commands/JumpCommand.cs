@@ -2,17 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JumpCommand : MonoBehaviour
+public class JumpCommand : Command
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public override CommandState CreateState() => new JumpCommandState();
+}
+public class JumpCommandState : CommandState
+{
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

@@ -6,6 +6,24 @@ public abstract class Command : MonoBehaviour
 {
     public float executionTime = 0.5f;
 
+    public Member<PoolObject> view;
+
+    public void _Setup()
+    {
+        MemberBinder.BindForce(this);
+    }
+
+    public PoolObject SpawnView(ObjectPool pool, Transform parent)
+    {
+        var obj = pool.Spawn(view.value, parent);
+        var rect = obj.GetComponent<RectTransform>();
+        rect.anchorMin = Vector2.zero;
+        rect.anchorMax = Vector2.one;
+        rect.offsetMin = Vector2.zero;
+        rect.offsetMax = Vector2.zero;
+        return obj;
+    }
+
     public abstract CommandState CreateState();
 }
 public abstract class CommandState

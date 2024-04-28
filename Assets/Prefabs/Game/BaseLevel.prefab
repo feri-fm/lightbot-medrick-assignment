@@ -49,6 +49,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ground: {fileID: 2107143852189463703}
   program: {fileID: 2107143852223206391}
+  commands:
+  - {fileID: 4861926912548754783, guid: f33401799d25e6041bf125856494cc0f, type: 3}
+  - {fileID: 4339248286474470037, guid: 0605aef3dc6b100429a82b969c12b88b, type: 3}
+  - {fileID: 8274214954158008943, guid: 35c43c0061bb7a44bbe43f9d8e7f0b58, type: 3}
+  - {fileID: 5714555685181361695, guid: 59035a3fac4f14d44843d6ce40b63c35, type: 3}
+  - {fileID: 531978686513612641, guid: 0a24a4de63b8508459438b7f35c64f92, type: 3}
   blocks: []
 --- !u!1 &2107143850772444245
 GameObject:

@@ -35,7 +35,10 @@ public class ListLoader : MonoBehaviour
     public void Clear()
     {
         foreach (var item in currentItems)
+        {
+            item._Remove();
             item.Pool();
+        }
         currentItems.Clear();
     }
 }

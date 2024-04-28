@@ -15,8 +15,13 @@ public class ListItem : PoolObject
         this.index = index;
         Setup();
     }
+    public void _Remove()
+    {
+        OnRemoved();
+    }
 
     public virtual void Setup() { }
+    public virtual void OnRemoved() { }
 }
 
 public class ListItem<T> : ListItem
