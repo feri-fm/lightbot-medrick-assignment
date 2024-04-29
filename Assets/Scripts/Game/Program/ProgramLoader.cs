@@ -24,6 +24,9 @@ public class ProgramLoader : MonoBehaviour
             executionTime += Time.deltaTime;
             if (executionTime > nextExecutionTime)
             {
+                if (currentCommand != null)
+                    currentCommand.ExecuteEnd();
+
                 currentCommand = StepForward();
                 if (currentCommand != null)
                 {

@@ -18,7 +18,7 @@ public class MoveCommandState : CommandState<MoveCommand>
         var block = game.levelLoader.GetBlockStateAtTop<PlatformBlockState>(targetPosition);
         if (block != null && block.position.y == player.position.y)
         {
-            player.position = targetPosition;
+            player.MoveTo(targetPosition);
         }
     }
 }

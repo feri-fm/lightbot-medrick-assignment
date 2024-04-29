@@ -18,7 +18,7 @@ public class JumpCommandState : CommandState<JumpCommand>
         var block = game.levelLoader.GetBlockStateAtTop<PlatformBlockState>(targetPosition);
         if (block != null && Mathf.Abs(block.position.y - player.position.y) == 1)
         {
-            player.position = block.position;
+            player.JumpTo(block.position);
         }
     }
 }

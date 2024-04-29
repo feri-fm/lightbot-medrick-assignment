@@ -47,9 +47,85 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: player
   body: {fileID: 912545848759769383}
+  heightAnchor: {fileID: 2971743526168301571}
   moveSpeed: 6
-  rotationSpeed: 500
-  smooth: 16
+  rotationSpeed: 600
+  smooth: 22
+  moveCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0.84363216
+      outSlope: 0.84363216
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.06262231
+    - serializedVersion: 3
+      time: 0.5
+      value: 0.2
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -0.89410585
+      outSlope: -0.89410585
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.45792568
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  jumpCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 3.431502
+      outSlope: 3.431502
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.21526419
+    - serializedVersion: 3
+      time: 0.35675883
+      value: 0.53346086
+      inSlope: 0.022774588
+      outSlope: 0.022774588
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.24657533
+      outWeight: 0.22048269
+    - serializedVersion: 3
+      time: 0.77389157
+      value: 0.40414566
+      inSlope: -0.6773646
+      outSlope: -0.6773646
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.2792017
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -2.3139627
+      outSlope: -2.3139627
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.041934595
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &4767084301048238982
 GameObject:
   m_ObjectHideFlags: 0
@@ -78,8 +154,40 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1440133392339149940}
+  - {fileID: 2971743526168301571}
   m_Father: {fileID: 8965280082580838484}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5815109894342221672
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2971743526168301571}
+  m_Layer: 0
+  m_Name: Height
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2971743526168301571
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5815109894342221672}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1440133392339149940}
+  m_Father: {fileID: 912545848759769383}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1474604306499945375
@@ -87,7 +195,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 912545848759769383}
+    m_TransformParent: {fileID: 2971743526168301571}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 9a7fee590012251488630ae7ae98982d,
         type: 3}
@@ -97,7 +205,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 9a7fee590012251488630ae7ae98982d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9a7fee590012251488630ae7ae98982d,
         type: 3}
@@ -122,7 +230,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 9a7fee590012251488630ae7ae98982d,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9a7fee590012251488630ae7ae98982d,
         type: 3}

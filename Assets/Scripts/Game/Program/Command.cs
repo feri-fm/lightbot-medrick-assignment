@@ -47,6 +47,7 @@ public abstract class CommandState
     }
 
     public virtual void Execute() { }
+    public virtual void ExecuteEnd() { }
     protected virtual void Setup() { }
     protected virtual void OnRemoved() { }
 
