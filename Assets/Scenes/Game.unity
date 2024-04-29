@@ -353,7 +353,7 @@ PrefabInstance:
     - target: {fileID: 9120343983071187109, guid: db036401c31709e40a7d2a45b1fff5a5,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 78.53131
+      value: 96.5587
       objectReference: {fileID: 0}
     - target: {fileID: 9120343983071187109, guid: db036401c31709e40a7d2a45b1fff5a5,
         type: 3}
@@ -393,12 +393,12 @@ PrefabInstance:
     - target: {fileID: 9120343983071187109, guid: db036401c31709e40a7d2a45b1fff5a5,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 362
+      value: 404
       objectReference: {fileID: 0}
     - target: {fileID: 9120343983071187109, guid: db036401c31709e40a7d2a45b1fff5a5,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 209
+      value: 210.50229
       objectReference: {fileID: 0}
     - target: {fileID: 9120343983071187109, guid: db036401c31709e40a7d2a45b1fff5a5,
         type: 3}
@@ -1278,7 +1278,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: -37.2, y: 0}
-  m_SizeDelta: {x: 64.1168, y: 64.1163}
+  m_SizeDelta: {x: 67.0709, y: 67.0704}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &687122000
 MonoBehaviour:
@@ -2453,7 +2453,7 @@ PrefabInstance:
     - target: {fileID: 8942961369296720385, guid: 443523ce5802d5d4ea062c75ca7459ad,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 65.142
+      value: 55.6925
       objectReference: {fileID: 0}
     - target: {fileID: 8942961369296720385, guid: 443523ce5802d5d4ea062c75ca7459ad,
         type: 3}
@@ -2498,7 +2498,7 @@ PrefabInstance:
     - target: {fileID: 8942961369296720385, guid: 443523ce5802d5d4ea062c75ca7459ad,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -32.571
+      value: -37.295685
       objectReference: {fileID: 0}
     - target: {fileID: 8942961369296720385, guid: 443523ce5802d5d4ea062c75ca7459ad,
         type: 3}
@@ -2523,12 +2523,12 @@ PrefabInstance:
     - target: {fileID: 8942961369296720398, guid: 443523ce5802d5d4ea062c75ca7459ad,
         type: 3}
       propertyPath: m_fontSize
-      value: 41.22
+      value: 45.39
       objectReference: {fileID: 0}
     - target: {fileID: 8942961369296720398, guid: 443523ce5802d5d4ea062c75ca7459ad,
         type: 3}
       propertyPath: m_fontSizeBase
-      value: 41.22
+      value: 45.39
       objectReference: {fileID: 0}
     - target: {fileID: 8942961369296720398, guid: 443523ce5802d5d4ea062c75ca7459ad,
         type: 3}

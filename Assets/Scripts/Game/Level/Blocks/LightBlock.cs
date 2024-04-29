@@ -9,9 +9,20 @@ public class LightBlock : Block<LightBlockState>
 
     public override BlockState CreateState() => new LightBlockState();
 
+    protected override void Setup()
+    {
+        base.Setup();
+        UpdateView();
+    }
+
     public override void Update()
     {
         base.Update();
+        UpdateView();
+    }
+
+    public void UpdateView()
+    {
         lightOn.SetActive(state.isOn);
         lightOff.SetActive(!state.isOn);
     }
