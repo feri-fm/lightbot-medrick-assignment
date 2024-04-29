@@ -8,6 +8,8 @@ public class GamePanel : BasePanel
     public GameObjectMember stopped;
     public ListLoaderMember commands;
     public ListLoaderMember procedures;
+    public GameObjectMember finished;
+    public TextMember levelKey;
 
     public override void OnRender()
     {
@@ -16,6 +18,14 @@ public class GamePanel : BasePanel
         stopped.SetActive(!game.isRunning);
         commands.Setup(game.levelLoader.level.commands);
         procedures.Setup(game.programLoader.program.procedures);
+        finished.SetActive(game.isFinished);
+        levelKey.text = game.levelLoader.level.key;
+    }
+
+    [Member]
+    public void Menu()
+    {
+        manager.LoadMenuScene();
     }
 
     [Member]
@@ -28,5 +38,11 @@ public class GamePanel : BasePanel
     public void Stop()
     {
         game.Stop();
+    }
+
+    [Member]
+    public void NextLevel()
+    {
+        game.LoadNextLevel();
     }
 }

@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class GameManager : BaseManager
 {
-    public Level startLevel;
     public LevelLoader levelLoader;
     public ProgramLoader programLoader;
 
     public bool isRunning { get; private set; }
+    public bool isFinished { get; private set; }
 
     public ProcedureState selectedProcedure;
 
@@ -24,13 +25,14 @@ public class GameManager : BaseManager
 
     private void Start()
     {
-        LoadLevel(startLevel);
+        LoadLevel(GetSelectedLevel());
         gamePanel.OpenPanel();
     }
 
     public void LoadLevel(Level level)
     {
         isRunning = false;
+        isFinished = false;
         levelLoader.LoadLevel(level);
         levelLoader.LoadBlocks();
         programLoader.LoadProgram(level.program);
@@ -41,7 +43,8 @@ public class GameManager : BaseManager
     public void Run()
     {
         isRunning = true;
-        programLoader.QueueProcedure("main");
+        programLoader.ClearExecution();
+        programLoader.InsertProcedure("main");
         programLoader.StartExecution();
         MarkDirty();
     }
@@ -68,5 +71,29 @@ public class GameManager : BaseManager
     {
         command.procedure.RemoveCommand(command);
         MarkDirty();
+    }
+
+    public void CheckFinished()
+    {
+        if (!isFinished && !levelLoader.states.Any(e => e is LightBlockState && !((LightBlockState)e).isOn))
+        {
+            isFinished = true;
+            programLoader.PauseExecution();
+            MarkDirty();
+        }
+    }
+
+    public void LoadNextLevel()
+    {
+        var nextLevel = config.GetNextLevel(levelLoader.level.key);
+        if (nextLevel != null)
+        {
+            SetSelectedLevel(nextLevel);
+            LoadLevel(nextLevel);
+        }
+        else
+        {
+            LoadMenuScene();
+        }
     }
 }

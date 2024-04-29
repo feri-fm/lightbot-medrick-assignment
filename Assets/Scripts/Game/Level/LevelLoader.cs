@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [RequireComponent(typeof(ObjectPool))]
@@ -94,5 +95,24 @@ public class LevelLoader : MonoBehaviour
         block.Remove();
         block.Pool();
         blocks.Remove(block);
+    }
+
+    public T GetBlockState<T>() where T : BlockState
+    {
+        return states.Find(e => e is T) as T;
+    }
+    public T GetBlockStateAt<T>(Vector3Int position) where T : BlockState
+    {
+        return states.Find(e => e is T && e.position == position) as T;
+    }
+    public T GetBlockStateAtTop<T>(Vector3Int position) where T : BlockState
+    {
+        var targets = states.Where(e => e is T && e.position.x == position.x && e.position.z == position.z).ToList();
+        if (targets.Count > 0)
+        {
+            targets.Sort((a, b) => b.position.y.CompareTo(a.position.y));
+            return targets[0] as T;
+        }
+        return null;
     }
 }

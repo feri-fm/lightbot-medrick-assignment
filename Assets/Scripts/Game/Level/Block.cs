@@ -14,6 +14,7 @@ public abstract class Block : PoolObject
     {
         this.loader = loader;
         this.state = state;
+        UpdateTransform();
         Setup();
     }
     public void Remove()
@@ -27,7 +28,13 @@ public abstract class Block : PoolObject
     public override void Update()
     {
         base.Update();
+        UpdateTransform();
+    }
+
+    public void UpdateTransform()
+    {
         transform.position = loader.ground.GetPosition(state.position);
+        transform.rotation = loader.ground.GetRotation(state.rotation);
     }
 
     public abstract BlockState CreateState();
@@ -39,6 +46,7 @@ public abstract class Block<TState> : Block where TState : BlockState
 public class BlockState
 {
     public Vector3Int position;
+    public BlockRotation rotation;
 
     public LevelLoader loader { get; private set; }
     public Block prefab { get; private set; }
@@ -53,6 +61,7 @@ public class BlockState
         this.loader = loader;
         this.prefab = prefab;
         position = loader.ground.GetPoint(prefab.transform.position);
+        rotation = BlockRotation.FromAngle(prefab.transform.eulerAngles.y);
         Setup();
     }
 

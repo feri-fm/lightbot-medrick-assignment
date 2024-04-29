@@ -19,4 +19,9 @@ public class LightBlock : Block<LightBlockState>
 public class LightBlockState : BlockState
 {
     public bool isOn;
+
+    public void ToggleLight()
+    {
+        isOn = !isOn;
+    }
 }

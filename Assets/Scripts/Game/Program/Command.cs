@@ -33,6 +33,8 @@ public abstract class CommandState
 
     public float executionTime => prefab.executionTime;
 
+    public GameManager game => GameManager.instance;
+
     public void Setup(Command prefab, ProcedureState procedure)
     {
         this.prefab = prefab;
@@ -47,4 +49,13 @@ public abstract class CommandState
     public virtual void Execute() { }
     protected virtual void Setup() { }
     protected virtual void OnRemoved() { }
+
+    public PlayerBlockState GetPlayer()
+    {
+        return game.levelLoader.GetBlockState<PlayerBlockState>();
+    }
+}
+public abstract class CommandState<T> : CommandState where T : Command
+{
+    public new T prefab => base.prefab as T;
 }

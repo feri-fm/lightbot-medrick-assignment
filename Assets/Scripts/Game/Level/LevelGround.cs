@@ -20,6 +20,11 @@ public class LevelGround : MonoBehaviour
         return new Vector3Int(Mathf.RoundToInt(relPos.x / width), Mathf.RoundToInt(relPos.y / height), Mathf.RoundToInt(relPos.z / width));
     }
 
+    public Quaternion GetRotation(BlockRotation rotation)
+    {
+        return Quaternion.Euler(0, rotation.value * 90, 0);
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.grey;

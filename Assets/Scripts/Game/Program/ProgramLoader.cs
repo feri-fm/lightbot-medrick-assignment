@@ -12,6 +12,8 @@ public class ProgramLoader : MonoBehaviour
 
     public BaseManager manager => BaseManager.instance;
 
+    public CommandState currentCommand { get; private set; }
+
     private float executionTime;
     private float nextExecutionTime;
 
@@ -22,10 +24,10 @@ public class ProgramLoader : MonoBehaviour
             executionTime += Time.deltaTime;
             if (executionTime > nextExecutionTime)
             {
-                var command = StepForward();
-                if (command != null)
+                currentCommand = StepForward();
+                if (currentCommand != null)
                 {
-                    nextExecutionTime = executionTime + command.executionTime;
+                    nextExecutionTime = executionTime + currentCommand.executionTime;
                 }
                 else
                 {
@@ -37,8 +39,14 @@ public class ProgramLoader : MonoBehaviour
 
     public void Clear()
     {
+        ClearExecution();
+    }
+    public void ClearExecution()
+    {
+        currentCommand = null;
         executionCounter = 0;
         executionTime = 0;
+        nextExecutionTime = 0;
         isExecuting = false;
         executionStack.Clear();
     }
@@ -49,14 +57,18 @@ public class ProgramLoader : MonoBehaviour
         program = prefab.CreateState();
     }
 
-    public void QueueProcedure(string key)
+    public void InsertProcedure(string key)
     {
         var procedure = program.GetProcedure(key);
-        executionStack.AddRange(procedure.commands);
+        InsertProcedure(procedure);
+    }
+    public void InsertProcedure(ProcedureState procedure)
+    {
+        executionStack.InsertRange(executionCounter, procedure.commands);
     }
     public CommandState StepForward()
     {
-        if (executionCounter > executionStack.Count)
+        if (executionCounter < executionStack.Count)
         {
             var command = executionStack[executionCounter];
             executionCounter++;
@@ -75,6 +87,6 @@ public class ProgramLoader : MonoBehaviour
     }
     public void StopExecution()
     {
-        Clear();
+        ClearExecution();
     }
 }
