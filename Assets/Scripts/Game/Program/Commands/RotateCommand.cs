@@ -13,6 +13,6 @@ public class RotateCommandState : CommandState<RotateCommand>
     {
         base.Execute();
         var player = GetPlayer();
-        player.rotation += prefab.rotation;
+        player.RotateTo(player.rotation + prefab.rotation);
     }
 }

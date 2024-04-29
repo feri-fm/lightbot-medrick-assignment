@@ -42,6 +42,8 @@ public class ProgramLoader : MonoBehaviour
 
     public void Clear()
     {
+        if (program != null)
+            program.Clear();
         ClearExecution();
     }
     public void ClearExecution()
@@ -57,7 +59,7 @@ public class ProgramLoader : MonoBehaviour
     public void LoadProgram(Program prefab)
     {
         Clear();
-        program = prefab.CreateState();
+        program = prefab.CreateState(this);
     }
 
     public void InsertProcedure(string key)

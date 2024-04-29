@@ -82,5 +82,10 @@ PrefabInstance:
       propertyPath: key
       value: proc1
       objectReference: {fileID: 0}
+    - target: {fileID: 8452624951669418347, guid: 9945ffc9487ed934998bb48f47194537,
+        type: 3}
+      propertyPath: procedureKey
+      value: proc1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9945ffc9487ed934998bb48f47194537, type: 3}

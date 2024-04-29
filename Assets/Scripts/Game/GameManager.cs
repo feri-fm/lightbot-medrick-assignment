@@ -11,11 +11,15 @@ public class GameManager : BaseManager
     public bool isRunning { get; private set; }
     public bool isFinished { get; private set; }
 
-    public ProcedureState selectedProcedure;
+    public ProcedureState selectedProcedure { get; private set; }
+
+    public Level level => levelLoader.level;
 
     public GamePanel gamePanel => panelGroup.GetPanel<GamePanel>();
 
     public new static GameManager instance { get; private set; }
+
+    private ProgramData programData;
 
     public override void Awake()
     {
@@ -37,6 +41,7 @@ public class GameManager : BaseManager
         levelLoader.LoadBlocks();
         programLoader.LoadProgram(level.program);
         selectedProcedure = programLoader.program.procedures[0];
+        LoadProgram();
         MarkDirty();
     }
 
@@ -46,6 +51,7 @@ public class GameManager : BaseManager
         programLoader.ClearExecution();
         programLoader.InsertProcedure("main");
         programLoader.StartExecution();
+        StoreProgram();
         MarkDirty();
     }
     public void Stop()
@@ -72,6 +78,11 @@ public class GameManager : BaseManager
         command.procedure.RemoveCommand(command);
         MarkDirty();
     }
+    public void ClearProgram()
+    {
+        programLoader.Clear();
+        MarkDirty();
+    }
 
     public void CheckFinished()
     {
@@ -79,13 +90,14 @@ public class GameManager : BaseManager
         {
             isFinished = true;
             programLoader.PauseExecution();
+            SaveProgram();
             MarkDirty();
         }
     }
 
     public void LoadNextLevel()
     {
-        var nextLevel = config.GetNextLevel(levelLoader.level.key);
+        var nextLevel = config.GetNextLevel(level.key);
         if (nextLevel != null)
         {
             SetSelectedLevel(nextLevel);
@@ -94,6 +106,27 @@ public class GameManager : BaseManager
         else
         {
             LoadMenuScene();
+        }
+    }
+
+    private string GetProgramDataKey()
+    {
+        return $"prg_{level.key}";
+    }
+    public void StoreProgram()
+    {
+        programData = programLoader.program.Save();
+    }
+    public void SaveProgram()
+    {
+        PlayerPrefs.SetString(GetProgramDataKey(), programData.ToJson());
+    }
+    public void LoadProgram()
+    {
+        if (PlayerPrefs.HasKey(GetProgramDataKey()))
+        {
+            var data = PlayerPrefs.GetString(GetProgramDataKey()).FromJson<ProgramData>();
+            programLoader.program.Load(data);
         }
     }
 }

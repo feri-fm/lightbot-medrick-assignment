@@ -10,14 +10,19 @@ public class GameConfig : ScriptableObject
     public Block[] blocks;
     public Level[] levels;
 
+    public Command GetCommand(string key)
+    {
+        return commands.FirstOrDefault(e => e.key == key);
+    }
+
     public Block GetBlock(string key)
     {
-        return blocks.First(e => e.key == key);
+        return blocks.FirstOrDefault(e => e.key == key);
     }
 
     public Level GetLevel(string key)
     {
-        return levels.First(e => e.key == key);
+        return levels.FirstOrDefault(e => e.key == key);
     }
 
     public Level GetNextLevel(string key)

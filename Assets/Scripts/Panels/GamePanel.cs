@@ -41,6 +41,19 @@ public class GamePanel : BasePanel
     }
 
     [Member]
+    public void ClearProgram()
+    {
+        game.ClearProgram();
+    }
+
+    [Member]
+    public void SaveProgram()
+    {
+        game.StoreProgram();
+        game.SaveProgram();
+    }
+
+    [Member]
     public void NextLevel()
     {
         game.LoadNextLevel();

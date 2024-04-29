@@ -178,7 +178,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   width: 1
   height: 0.5
-  preview: 1
+  previewWidth: 3
+  previewHeight: 0
 --- !u!1 &2107143852223206384
 GameObject:
   m_ObjectHideFlags: 0

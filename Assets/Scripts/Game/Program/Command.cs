@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class Command : MonoBehaviour
 {
+    public string key;
     public float executionTime = 0.5f;
 
     public Member<PoolObject> view;
@@ -55,8 +56,25 @@ public abstract class CommandState
     {
         return game.levelLoader.GetBlockState<PlayerBlockState>();
     }
+
+    public CommandData Save()
+    {
+        return new CommandData()
+        {
+            key = prefab.key,
+        };
+    }
+    public void Load(CommandData data)
+    {
+
+    }
 }
 public abstract class CommandState<T> : CommandState where T : Command
 {
     public new T prefab => base.prefab as T;
+}
+
+public class CommandData
+{
+    public string key;
 }

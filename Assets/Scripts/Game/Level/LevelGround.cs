@@ -7,12 +7,12 @@ public class LevelGround : MonoBehaviour
     public float width = 1;
     public float height = 0.5f;
 
-    public int preview = 1;
+    public int previewWidth = 1;
+    public int previewHeight = 1;
 
     public Vector3 GetPosition(Vector3Int point)
     {
         return transform.position + transform.TransformDirection(new Vector3(point.x * width, point.y * height, point.z * width));
-
     }
     public Vector3Int GetPoint(Vector3 position)
     {
@@ -37,11 +37,11 @@ public class LevelGround : MonoBehaviour
     }
     private void DrawGizmos()
     {
-        for (int i = -preview; i <= preview; i++)
+        for (int i = -previewWidth; i <= previewWidth; i++)
         {
-            for (int j = -preview; j <= preview; j++)
+            for (int j = -previewWidth; j <= previewWidth; j++)
             {
-                for (int k = -preview; k <= preview; k++)
+                for (int k = -previewHeight; k <= previewHeight; k++)
                 {
                     Gizmos.DrawWireSphere(GetPosition(new Vector3Int(i, k, j)), height / 4f);
                 }

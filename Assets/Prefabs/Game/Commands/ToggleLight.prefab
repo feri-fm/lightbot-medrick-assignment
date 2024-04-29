@@ -108,4 +108,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca7d01569b2354419a3a59e6d56cc99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  key: toggle_light
   executionTime: 0.3
